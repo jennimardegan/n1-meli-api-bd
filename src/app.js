@@ -1,5 +1,6 @@
 const express = require("express")
 const mongoose = require("mongoose")
+const bodyParser = require("body-parser")
 
 const app = express()
 
@@ -27,6 +28,9 @@ app.use(function(req, res, next) {
   )
   next()
 })
+
+//Linha incluida no momento de incluir o POST para o MongoDB
+app.use(bodyParser.json());
 
 app.use("/", index)
 app.use("/alunas", alunas)

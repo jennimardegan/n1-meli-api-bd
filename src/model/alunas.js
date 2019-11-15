@@ -6,6 +6,8 @@ const AlunasSchema = new mongoose.Schema({ //resumo das características que tem
     nasceuEmSp: { type: String }, //Boolean se não fosse string
     //id: {}
     livros: [{ titulo: String, leu: String }] //Boolean se não fosse string
+}, {
+    versionKey: false //no momento de fazer o POST para o Mongo, não traz a info de versão (v0) na aluna
 })
 //Exemplo para deixar o parametro como obrigatório:
 // var sampleSchema = new Schema({ name: {type: String, required: true}})
