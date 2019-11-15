@@ -5,7 +5,7 @@ const AlunasSchema = new mongoose.Schema({ //resumo das características que tem
     dateOfBirth: { type: String }, //Date se não fosse string
     nasceuEmSp: { type: String }, //Boolean se não fosse string
     //id: {}
-    livros: [{ titulo: String, leu: String }] //Boolean se não fosse string
+    livros: [{ _id:false, titulo: String, leu: String }] //Boolean se não fosse string / não cria ID para livro no momento do POST
 }, {
     versionKey: false //no momento de fazer o POST para o Mongo, não traz a info de versão (v0) na aluna
 })
