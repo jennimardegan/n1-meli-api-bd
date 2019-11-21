@@ -208,3 +208,17 @@ exports.postBooks = (req, res) => {
   res.status(201).send(aluna);
 })
 })}
+
+//PUT para alterar um cadastro de aluna existente no BANCO
+exports.update = (req, res) => {
+  Alunas.update(
+    {_id: req.params.id},
+    {$set: req.body},
+    {upsert: true},
+    function(err) {
+      if (err) return res.status(500).send({message: err});
+      res.status(204).send({message: "Atualizado com sucesso!"}) //padrão 204 - "no content", sucesso e não precisa retornar nada 
+    }
+  )
+}
+//201:utilizado quando algo é criado
